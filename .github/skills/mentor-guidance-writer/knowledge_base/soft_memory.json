@@ -1,0 +1,154 @@
+{
+  "version": "1.0",
+  "description": "Soft memory for user preferences, phrasing, tone, and style tendencies by domain.",
+  "domains": {
+    "general": {
+      "preferences": [],
+      "phrasing": [],
+      "tone": [],
+      "avoid": []
+    },
+    "paper": {
+      "preferences": [
+        "Keep LaTeX output clean and minimal; avoid adding decorative formatting.",
+        "Use precise, common academic vocabulary and short, clear sentences.",
+        "Expand non-universal abbreviations at first mention using the full term followed by the abbreviation in parentheses.",
+        "Explain concepts close to where they appear to reduce confusion time.",
+        "Start each sentence by resolving the concept handed off by the previous sentence, then use the sentence ending to introduce the next local idea.",
+        "Prioritize logical coherence over ornate connectives.",
+        "Prefer plainer, mechanism-explicit wording when a compound phrase would otherwise sound opaque.",
+        "State core novelty early and align experiments with contribution claims.",
+        "Keep captions self-explanatory and place key explanations near figures/tables.",
+        "Replace ambiguous pronouns with explicit technical referents when several nouns compete as antecedents.",
+        "Use high-level taxonomy in subsection titles before introducing method-level detail.",
+        "When sibling subsections compare representative methods, title them on a shared axis such as prerequisite information, modeled object, or estimation target.",
+        "Check article choice deliberately for each countable noun phrase during revision.",
+        "After a motivating example or numerical result, begin the next paragraph by stating what the example established and why the next distinction or comparison is needed."
+      ],
+      "phrasing": [
+        "Use reviewer-facing language: novelty, rigor, reproducibility, and evidence.",
+        "When a sentence opens, anchor it to the prior sentence before introducing a new object, mechanism, or contrast.",
+        "For explicit taxonomy splits, prefer direct phrasing such as 'can be divided into ...' when the sentence is introducing categories rather than describing an organizing process."
+      ],
+      "tone": [
+        "Objective, rigorous, and concise."
+      ],
+      "avoid": [
+        "Overclaiming results without evidence or citations.",
+        "Bullet-list paragraphs when prose is required.",
+        "Overused AI-sounding words (e.g., delve, leverage, tapestry, coupling).",
+        "Sentence openings that introduce an unprepared new concept instead of reusing the concept handed off by the previous sentence.",
+        "Single sentences that force the reader to absorb several newly introduced concepts before the local logic is established.",
+        "Mixed title axes across sibling subsections, such as naming one by input condition, another by modeling mechanism, and a third by modeled factor.",
+        "Opaque compound labels that do not reveal the underlying mechanism unless the mechanism is explained immediately.",
+        "Redundant near-synonym pairings that name the same factor twice.",
+        "Awkward collocations that compare nonparallel technical objects, such as saying CSI acquisition should 'keep pace with' channel dimensionality.",
+        "Less common verbs such as 'strain' when plainer domain-standard verbs like 'challenge', 'limit', or 'complicate' are clearer.",
+        "Ambiguous uses of 'it' when multiple technical nouns precede the pronoun.",
+        "Repeating simulation setup in the body after the caption already specifies the same configuration.",
+        "Using 'deviate' when the sentence describes a mismatch between two distinct objects (e.g., map prior vs. channel); use 'mismatch', or 'no longer align with' instead. Verb choice must match the core image: 'deviate' implies one object drifting from its own course, not two objects failing to agree."
+      ]
+    },
+    "wireless_communications_magazine": {
+      "preferences": [
+        "Use concrete relational labels such as interaction patterns when naming how dynamic CKM construction and physical-layer processing relate.",
+        "Use relation-specific prepositions such as based on and to assist instead of generic wording such as relative to.",
+        "Maintain sentence-by-sentence handoff so that each sentence begins from an already activated concept and ends by setting up the next concept.",
+        "Use taxonomy-driven subsection titles that classify methods by information availability or inference mode before naming specific algorithms.",
+        "When survey subsection titles are long, keep them parallel by reusing the same contrast axis and let the first two sentences unpack that axis explicitly.",
+        "Merge highly overlapping section openers and first-subsection framing into one coherent transition when both serve the same narrative role.",
+        "Keep co-design discussion conceptual and system-level before mentioning candidate algorithm families.",
+        "Split sentences when interference type, structural property, and suppression method would otherwise all be introduced at once.",
+        "When comparing several methods, keep the sentence structure parallel and make each method-to-scenario mapping explicit.",
+        "Keep paired comparison labels symmetrical, especially in tables and attribute rows.",
+        "If equal-weight survey subsections would understate the broader scope of the focal method, compress earlier work into shared prose and give the broader method the main explanatory space.",
+        "For simulation figures, move setup details into the caption and keep the body focused on the comparison, dominant trend, and engineering implication."
+      ],
+      "phrasing": [
+        "Prefer relation-specific phrasing such as 'based on the quasi-static map', 'to assist the physical layer', 'conditioned on', and 'inferred from'.",
+        "Describe technical pressure with direct verbs such as 'challenge', 'limit', 'complicate', and 'scale poorly with'.",
+        "When the antecedent is not unique, replace 'it' with the specific object name even if the sentence becomes slightly longer.",
+        "When introducing a taxonomy, prefer wording such as 'Existing approaches can be divided into ...' if the goal is to present a direct category split."
+      ],
+      "tone": [
+        "Tutorial-style, technically grounded, concise, and reviewer-facing."
+      ],
+      "avoid": [
+        "Subsection titles that classify survey material by algorithmic implementation detail before the higher-level taxonomy is clear.",
+        "Repeated section-opening and subsection-opening paragraphs that restate the same co-design motivation.",
+        "Sentence openings that abruptly introduce a new interference type, method, or property before the previous sentence has prepared it.",
+        "Packing several new technical objects into one sentence opening instead of unfolding them across a short chain of sentences.",
+        "Sibling subsection titles that use different comparison axes, making the difference among methods hard to read at a glance.",
+        "Generic abstract labels such as paradigms when the sentence can name the concrete interaction pattern instead.",
+        "Redundant factor pairings such as 'moving objects or dynamic-environment conditions' when one term already covers the intended source of variation.",
+        "Weak contrast wording such as 'additional value' when the sentence is meant to state the main distinction.",
+        "Nonparallel comparison labels that obscure the contrast axis in a table or paired sentence.",
+        "Awkward collocations such as 'keep pace with' for CSI acquisition versus channel dimensionality or dynamics.",
+        "Ambiguous pronouns when multiple candidate antecedents appear in the same local context."
+      ]
+    },
+    "wireless_communications_letters": {
+      "preferences": [
+        "Move quickly from practical motivation to technical gap to evidence.",
+        "Keep related work compact and integrate it into the Introduction unless separation is necessary.",
+        "Use one visible logic chain per paragraph: claim, reason, mechanism or evidence, implication.",
+        "End paragraphs with a concept that the next paragraph can pick up naturally.",
+        "Translate Chinese source material into idiomatic English arguments, not literal English sentences.",
+        "Explain figures by the question they answer, the trend they show, and the deployment implication.",
+        "State benefits and limitations close together to preserve reviewer trust.",
+        "Prefer concise reviewer-facing English over promotional or visionary language."
+      ],
+      "phrasing": [
+        "Use transitions such as 'This observation motivates', 'That limitation becomes critical when', and 'Building on this insight' rather than repetitive generic connectors.",
+        "Use result framing such as 'Numerical results indicate that' and 'The gain is most evident when'."
+      ],
+      "tone": [
+        "Concise, rigorous, technically grounded, and moderately forward-looking."
+      ],
+      "avoid": [
+        "Literal translation from Chinese that preserves Chinese syntax or abstract rhetoric.",
+        "Paragraph openings that rely on Furthermore, Moreover, Additionally, or In conclusion as the main bridge.",
+        "Inflated claims such as revolutionary, game-changing, or unprecedented without tight evidence.",
+        "Equation-heavy exposition when intuition and structured prose are sufficient.",
+        "Loose paragraphs that present facts without an explicit local claim or handoff."
+      ]
+    },
+    "thesis": {
+      "preferences": [
+        "One paragraph, one core idea; place topic sentences early.",
+        "Maintain consistent terminology and symbols across chapters.",
+        "Introduce concepts near first mention and avoid long unexplained gaps.",
+        "Preserve information density by removing irrelevant history."
+      ],
+      "phrasing": [
+        "Use clear chapter-level transitions that summarize the upcoming section."
+      ],
+      "tone": [
+        "Formal, steady, and methodical."
+      ],
+      "avoid": [
+        "Ambiguous referents and long sentences with unclear relative clauses.",
+        "Redundant restatement without added insight."
+      ]
+    },
+    "grant": {
+      "preferences": [
+        "Align each section with the funder’s mission and explicit review criteria.",
+        "Structure Specific Aims for clarity, feasibility, and impact.",
+        "Provide a realistic timeline and milestones to demonstrate feasibility.",
+        "Surface potential risks and mitigation strategies early.",
+        "Use a compelling, specific, benefit-oriented title."
+      ],
+      "phrasing": [
+        "Emphasize significance, innovation, approach, and expected outcomes."
+      ],
+      "tone": [
+        "Persuasive, confident, and reviewer-centric."
+      ],
+      "avoid": [
+        "Vague alignment statements without concrete criteria mapping.",
+        "Unverifiable claims or exaggerated impact language."
+      ]
+    }
+  }
+}
