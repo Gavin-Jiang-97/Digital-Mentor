@@ -1,141 +1,137 @@
 # Mentor Guidance Writer
 
-这个 skill 的出发点很简单：以前老师会把论文改得满页红笔，很多问题会被一遍遍指出；现在这类高密度、一针见血的写作反馈越来越稀缺（导师也越来越忙，只在纸上留下稀疏的几个问号）。与其每次重新回忆那些零散的写作规范，不如把可复用的部分沉淀成一个可以调用、维护、迭代的 skill，让 AI 在写作时先读这些，再动笔。
+这个 skill 的出发点很简单：以前老师会把论文改得满页红笔，很多问题会被一遍遍指出；现在这类高密度、一针见血的写作反馈越来越稀缺（导师也越来越忙，只在纸上留下稀疏的几个问号）。与其每次重新回忆那些零散的写作规范，不如把可复用的部分沉淀成一个可以调用、维护、迭代的 skill。
 
-<!--我把它理解为一种“导师经验的可移植封装”。它并不试图替代人的判断，也不承诺生成一份放之四海而皆准的神奇 prompt。它做的事情更朴素：把无线通信论文写作中那些重复出现、却又很容易漏掉的结构要求、术语约束、句法偏好和常见错误单独存起来，让 AI 在写作时先读这些，再动笔。-->
+我把它理解为一种“导师经验的可移植封装”。它并不试图替代人的判断，也不承诺生成一份放之四海而皆准的神奇 prompt。它做的事情更朴素：把无线通信论文写作中那些重复出现、却又很容易漏掉的结构要求、术语约束、句法偏好和常见错误单独存起来，让 AI 在写作时先读这些，再动笔。
 
-用袁老师的话说：“学术写作，80%都是八股文。” 相信大家写了1~2篇期刊论文后，也会深有同感。论文写作里确实有一部分是重复劳动。结构怎么搭，Introduction 怎样铺垫，系统模型该写到什么程度，首次出现的缩写怎么处理，图正文和 caption 怎样分工，哪些词一看就有 AI 腔。这些内容并不需要每次都从零开始发明。把它们做成 skill 的价值，不是为了偷懒，而是为了把注意力从重复召回转移到真正重要的判断上：问题是否成立，贡献是否清楚，证据是否充分，表达是否真的更好了。
+用袁老师的话说：“学术写作，80%都是八股文。” 相信大家写了几篇期刊论文后，也会深有同感。论文写作里确实有一部分是重复劳动。结构怎么搭，Introduction 怎样铺垫，系统模型该写到什么程度，首次出现的缩写怎么处理，图正文和 caption 怎样分工，哪些词一看就有 AI 腔。这些内容并不需要每次都从零开始发明。把它们做成 skill 的价值，不是为了偷懒，而是为了把注意力从重复召回转移到真正重要的判断上：问题是否成立，贡献是否清楚，证据是否充分，表达是否真的更好了。
+
+除了起草和润色，这个技能也可以依据知识库中的写作规范，检查指定章节或具体问题。它会说明哪里有问题、依据是什么、为什么需要修改，再按照你的要求给出建议或直接修改。
 
 ## Notable contributions
 **[@ElysionHuang](https://github.com/ElysionHuang)** 该项目的灵感源于以诺在科研群分享的“蒸馏老板和同事”的SKILL。后续我和以诺将共同维护该仓库，把它拓展为适用于会议（Conference）、期刊（Journal）和杂志（Magazine）的通用版本，并内置高效的论文 PDF 风格提取器。
 
-
-## Package Tree
+## 文件与分工
 
 ```text
-.github/skills/mentor-guidance-writer/
-├── SKILL.md
+Digital-Mentor/
 ├── README.md
-└── knowledge_base/
-    ├── style_profile.md
-    ├── outline_template.md
-    ├── hard_memory.json
-    ├── soft_memory.json
-    └── error_log.md
+├── LICENSE
+├── 写作指引.md
+└── .github/skills/mentor-guidance-writer/
+    ├── SKILL.md
+    └── knowledge_base/
+        ├── 学术写作规范.md
+        ├── style_profile.md
+        ├── memory.md
+        └── error_log.md
 ```
 
-## Knowledge Base Roles
+| 文件 | 主要用途 |
+|---|---|
+| [学术写作规范.md](.github/skills/mentor-guidance-writer/knowledge_base/学术写作规范.md) | 写作和检查论文的依据，包括技术对象与机制、主张与证据、章节组织、符号和仿真分析。 |
+| [style_profile.md](.github/skills/mentor-guidance-writer/knowledge_base/style_profile.md) | 说明希望采用的表达风格，包括句间衔接、段落推进、措辞和需要避免的表达。 |
+| [memory.md](.github/skills/mentor-guidance-writer/knowledge_base/memory.md) | 保存 CKM 等术语定义、缩写规则、短语参考和稿件格式约定。 |
+| [error_log.md](.github/skills/mentor-guidance-writer/knowledge_base/error_log.md) | 留给作者查阅的历史错误案例，不是 AI 每次都要读取的清单。 |
 
-### `style_profile.md`
+写作规范告诉 AI“应该检查什么”，风格文件告诉它“怎样表达”，记忆文件帮助它保持术语和格式一致。同一个问题不需要在几个文件里重复维护；短语和例句也要结合上下文使用，不能直接照抄。
 
-这是高层写作风格文件。它回答的是“整体应该写成什么样”。这里面会规定段落逻辑、句式节奏、衔接方式、常用修辞动作，以及要主动回避的 AI 腔表达。它不是句子库，而是宏观风格的护栏。
+## 使用前，先说明投哪里
 
-例如：
-`句首先承接上一句句尾已经引出的对象，再在句尾引出下一个对象，尽量形成 sentence-by-sentence handoff`
+最好在任务里写明期刊名称，以及稿件属于 magazine、letter 还是 journal。你没有提供时，AI 会主动询问；已经提供的信息不会反复问，也不会默认按 IEEE Wireless Communications Magazine 的风格处理。
 
-下面给出一个错误示例：
-`Pilot-based CSI acquisition struggles to keep pace with the rapid variation of wireless channels. Channel knowledge maps (CKMs) have been proposed to address this problem. Propagation parameters such as path delays and angles are environment-specific and stable. Physical-layer processing can use these parameters to reduce reliance on pilots.`
+如果还没决定投哪里，可以直接说明。AI 可以先检查通用问题，涉及期刊类型的章节安排则留待确定后再处理。
 
-以下是对错误示例的修改：
-`Pilot-based CSI acquisition struggles to keep pace with the rapid variation of wireless channels. This rapid variation has, in recent years, motivated the introduction of channel knowledge maps (CKMs). A CKM stores environment-specific propagation parameters that remain stable over much longer timescales than the channel itself. These parameters can be queried in real time to bootstrap physical-layer processing, reducing its reliance on dense pilot transmission.`
+规范中关于摘要与引言、系统模型与算法的两类准则，目前主要针对 IEEE Wireless Communications Letters（WCL）短文。用于其他期刊时，需要结合文章类型调整，不必强行套用某个段数或篇幅。
 
-### `outline_template.md`
+仿真配置按下面的写作约定放置：magazine 放在头注（图表说明，caption）；letter 或 journal 放在仿真章节开头统一介绍。逐图分析主要解释结果，不再重复已经交代的设置。这是本知识库采用的写作约定，不代表所有 IEEE 期刊都有同一项官方要求。
 
-这是结构模板文件。它回答的是“这类短文应该怎么搭”。对无线通信短文来说，这个文件很重要，因为如果没有明确的章节预算、段落范围和 word budget，模型很容易偷懒，本来该写成五页的内容最后只写出两页。这个模板默认贴近 IEEE Wireless Communications Letters 风格，但也可以继续扩展。
+## 再说明你想表达什么
 
-### `hard_memory.json`
+这个技能帮助你把已有思想写清楚、写规范，不能替你决定论文想说什么。除了期刊和材料，也请说明：这一段或这一节想让读者理解什么，准备怎样一步步讲清楚，哪些机制或结果支持这个结论。已有草稿能够清楚表达这些内容时，不需要另外提交提纲。
 
-这是硬记忆文件。它保存研究方向里的术语、单位、固定规则和硬约束，例如 CKM、RIS、MIMO、常见 performance metric、缩写首次出现规则、图表与篇幅限制等。它的任务是防止术语漂移、定义不稳和格式失控。
+AI 会先以熟悉你研究方向的评审视角检查：思路是否足够清楚，技术关系是否对应，论证是否连贯，结论是否有依据。如果思路合理，就继续已授权的写作或修改；如果缺少关键信息或存在逻辑问题，它应具体指出疑点，建议你先理清思路，再推进依赖这些内容的写作。
+
+AI 可以提出问题和供你考虑的建议，但不会把自己推测的动机、贡献或因果关系直接写成你的思想。局部润色只需检查相关片段，不要求重新提交整篇论文的研究方案。
+
+## 三种常用方式
+
+### 1. 从零开始写
+
+提供研究内容、想表达的核心思想与论证顺序、已有结果、目标期刊和参考材料。AI 会先阅读学术写作规范、风格文件和记忆文件，再根据文章要讲清的问题组织内容。参考论文不必只看引用量，也可以看它的结构、措辞和图文配合是否值得学习。
+
+如果思路还没理顺，可以先让 AI 给出写作方案，确认后再写。章节和段落应服务于论述，不需要固定成某一种模板。
 
 ```text
-示例
-"term": "Channel knowledge map (CKM)",
-"definition": "A location-indexed representation of channel-related knowledge that supports environment-aware wireless communication and sensing."
+/mentor-guidance-writer
+目标期刊是 IEEE Wireless Communications Letters。
+我的思路是：先说明低信噪比下的估计困难，再解释去噪为何有助于估计，最后介绍两步算法。具体机制与结果见附件。
+请先判断材料能否支撑这条逻辑；有疑问先指出，合适后再阅读知识库并起草方法章节。
+先给出写作方案，等我确认后再写正文。
 ```
 
-### `soft_memory.json`
+### 2. 修改已有段落
 
-这是软记忆文件。它和 `style_profile.md` 有交集，但分工不同。`style_profile.md` 更偏宏观，`soft_memory.json` 的信息会更加密集，关注的是“怎么把可读提升到易读，再提升到让人进入心流，停不下来”。比如句首承接旧概念、句尾引出新概念、怎样避免味同嚼蜡的平铺直叙。
+给出原文、修改目标和需要保留的内容。例如，只理顺句间衔接、统一术语，或精简一段过长的系统模型。AI 会读取风格与记忆文件，以及写作规范中的通用准则和相关章节准则，围绕指定范围修改。
 
 ```text
-示例
-"preferences": [
-"Keep LaTeX output clean and minimal; avoid adding decorative formatting.",
-"Use precise, common academic vocabulary and short, clear sentences.",
-"Expand non-universal abbreviations at first mention using the full term followed by the abbreviation in parentheses.",
-"Explain concepts close to where they appear to reduce confusion time.",
-"Start each sentence by resolving the concept handed off by the previous sentence, then use the sentence ending to introduce the next local idea.",
-"Prioritize logical coherence over ornate connectives.",
-"Prefer plainer, mechanism-explicit wording when a compound phrase would otherwise sound opaque.",
-"State core novelty early and align experiments with contribution claims.",
-"Keep captions self-explanatory and place key explanations near figures/tables.",
-"Replace ambiguous pronouns with explicit technical referents when several nouns compete as antecedents.",
-"Use high-level taxonomy in subsection titles before introducing method-level detail.",
-"When sibling subsections compare representative methods, title them on a shared axis such as prerequisite information, modeled object, or estimation target.",
-"Check article choice deliberately for each countable noun phrase during revision.",
-"After a motivating example or numerical result, begin the next paragraph by stating what the example established and why the next distinction or comparison is needed."
-]
+/mentor-guidance-writer
+目标期刊是 IEEE Wireless Communications Letters。
+这两段想先交代观测模型，再说明已知量与待估计量，最后明确估计目标。
+请先检查原文是否表达了这条逻辑；若存在关键缺口，先问我，再修改符号定义和句间衔接。
+可以直接改文件，但保留公式、技术假设和结论，只处理我标出的两段。
 ```
 
-### `error_log.md`
+### 3. 检查指定章节或问题
 
-这是给人复盘用的错题本，而不是强制喂给模型的主上下文。它记录的是那些在写作中反复踩坑的问题，例如词语搭配、指代歧义、句间衔接断裂、survey 分类轴不统一等。它的价值在于温故而知新，也方便后续把常见问题进一步抽象进风格或记忆文件。
+可以让 AI 检查引言、算法描述、符号体系或仿真分析。它会选择适用准则，结合上下文定位问题。你需要说明是只给意见，还是允许修改。
 
-## Two Main Usage Modes
-
-### 1. 从零到一
-
-适用于刚开始写短文、还没有成稿的情况。一个比较稳妥的做法是先选 5 篇左右参考论文，但不要只看引用量。高引用不等于写作一定最适合作为模板。有的论文措辞好，有的论文结构更强，有的论文图文呼应做得更干净。你可以自己先读，也可以让 AI 帮你打分，判断哪些文章更适合用来学习写法。第一次上手的朋友，建议先结合根目录的 [写作指引.md](写作指引.md) 一起看，这样更容易先把短文的章节分工和写作顺序建立起来。
-
-在这个模式下，建议优先使用 plan 模式。不同平台的命名可能不完全一样，有的叫 `plan`，有的叫 `grill me`，有的会表现成先给出执行方案再等待确认，但核心思想是一致的：先让 AI 给出它准备如何抽取这些论文中的写作规律、如何映射到当前 topic、哪些旧规则会保留、哪些新规则值得纳入 knowledge base，需要我们同意后，才能执行任务，我们也能和他迭代修改。这样可以防止模型为了追求局部顺滑，把已有知识库里真正重要的写作经验误删掉。
-
-``` 使用示例
-- `/mentor-guidance-writer 请仔细阅读我提供的论文，然后去完善knowledge base，关于knowledge base中的通用或共性写作方法，请保留。如果出现和我想要投递的IEEE Transactions on Wireless Communications期刊写作风格有冲突的地方（最有可能是outline_template.md），请将其删除，但是要提前告知我预计删除与修改哪些内容，待我同意后再执行。
+```text
+/mentor-guidance-writer
+目标期刊是 IEEE Wireless Communications Letters。
+我的论证思路是：新场景测量增加部署成本，因此研究如何减少对现场测量的依赖；本文贡献以所提供的实验范围为限。
+请先检查草稿和材料是否支持这条论证，再按学术写作规范指出问题位置、准则依据和修改建议。
+暂时不要修改文件。
 ```
 
-### 2. 局部修改或润色
-
-适用于你已经写了一部分，只想让 AI 结合 knowledge base 做定向改进，例如重写 Introduction 第二段、压缩 system model、补强 results 的解释句，或者检查某一节是否有明显 AI 腔。这个模式下不需要每次动知识库，但如果发现了反复出现的稳定问题，应该及时回写到 package 里。如果只是改部分措辞，并且你还没完全想清楚怎么改，也建议转移到网页版 AI 对话里多来回几轮，这样往往更有助于澄清需求，也更节约 token。
-
-``` 使用示例
-若处于论文前期的撰写（自身思路还不是太清晰、论文也相对粗糙的情况），可以用相对简洁的提示词：
-- `/mentor-guidance-writer Draft a WCL-style introduction for wireless channel estimation from these five reference papers and show me a Writing_Plan first.`
-- `/mentor-guidance-writer Revise my System Model and Results sections using the packaged knowledge base, but do not update the package itself.`
-- `/mentor-guidance-writer 根据这个段落和两篇参考文献，帮我重写 Introduction 的第二段与第三段，并检查是否符合短文结构。`
-- `/mentor-guidance-writer Update the packaged soft_memory.json and style_profile.md based on the writing preferences we confirmed today.`
-
-若论文已达到及格线，即便你有了SKILL.md，还是要注意每次对话prompt的设计。根据我目前的试错，prompt写得比较好的情况下，可以相信AI修改的80%的地方。提示词写得不好的话，它会让你血压飙升。建议采用角色-任务-要求-参考资料的结构撰写：
-- `/mentor-guidance-writer` 
-角色：xx资深专家，擅长xx，精通xx（例如，你让AI帮你改算法中的公式推导，提升公式间的严谨性，你就让他精通XX方向的数学表达和逻辑推理）
-任务：需要你帮助我xx，达到xx效果
-具体要求：按以下顺序执行任务 1. xxx 2. xxx 3. xxx （例如1. 充分理解上下文 2. 分析结构，约束某些不能修改的地方（如某某公式、某些措辞、或传达的某些含义） 3. 定向优化xx ）
-参考资料：草稿、可借鉴的其它论文段落、或者单独强调knowledge base里哪些规则需要特别遵守（如果你维护的knowledge base特别庞大，范围指定是有必要的）
-输出：对应tex xx-xx行的修改
+```text
+/mentor-guidance-writer
+目标期刊是 IEEE Transactions on Wireless Communications，属于 journal。
+我想先比较估计误差，再通过模块消融分析增益来源，最后说明优势出现的条件。
+请先检查现有结果是否支持这个思路，再修改有证据支持的部分，保持数据和技术结论不变。
+缺少证据或需要我确认的地方请单独指出。
 ```
 
-## How To Judge Whether The Revision Is Better
+好的审核意见应让你能找到原文，并理解“为什么这里有问题、可以怎样改”。例如检查符号定义时，应指出具体符号及出现位置，再说明它与“3.4 就近定义符号”的关系，而不只是说“符号不够清楚”。如果原文没有支持某个判断的材料，AI 应说明还缺什么，不能编造实验结果或推导前提。
 
-至少从两个层面判断。
+## 怎样把任务说清楚
 
-第一层是结构。段落是否各司其职，Introduction 有没有把 motivation、gap、contribution 区分开，system model 有没有过长，method 和 results 有没有互相重复 framing。
+一个好用的请求通常包含：目标期刊、稿件或材料、作者想表达的思想和逻辑、要处理的范围、修改目标，以及哪些内容不能改。你也可以指定输出形式，例如逐条意见、修改前后对照，或直接修改某个文件。
 
-第二层是语义与表达。句间衔接是否顺，指代是否清楚，术语是否稳定，句子是不是一上来就抛出新概念，是否混入了 AI 很喜欢但并不真正服务论证的词。结构问题可以更多依赖模板，语义问题则要靠 `error_log.md` 和持续复盘。
+“只检查”表示只给意见；“检查并修改”表示可以在指定范围内动笔；“先给方案，确认后再改”表示 AI 必须等待你的确认。已经授权的修改无需反复确认，但遇到技术含义不清楚或材料不足的地方，仍需要把具体疑问交给作者判断。
 
-如果模型偷懒，最有效的方法通常不是加更多prompt，而是拆分任务。把“写完整篇论文”拆成“抽结构”“写四段式引言”“压缩 system model”“解释图 1 的主要趋势”这类粒度更小的子任务，通常更容易得到可控结果。
+如果一次任务过大，可以拆成“理顺引言的论证”“检查符号定义”“解释图 1 的趋势”等小任务。缩小范围通常比不断增加要求更容易得到可检查的结果。
 
-## Maintenance Guidance
+## 怎样判断改得好不好
 
-- `style_profile.md` 适合收录稳定、可迁移的高层写作偏好。
-- `outline_template.md` 适合维护某类 venue 的结构约束与 done criteria。
-- `hard_memory.json` 适合放术语、单位、缩写、硬规则。
-- `soft_memory.json` 适合放句级偏好、语气、衔接和 avoid list。
-- `error_log.md` 适合收录反复出现、值得人回头看的错误。
+先看技术含义：方法与局限是否准确对应，结论是否有证据支持，适用条件有没有被删掉，公式和数据是否保持原意。
 
-这几个文件的目标不是越多越好，而是越稳定越好。只有当一条规则会反复影响后续写作时，才值得写进去。
+再看表达：段落是否各有重点，句间衔接是否自然，术语和符号是否一致，图表分析是否说明了结果及原因。句子变短或读起来更顺，并不等于修改一定正确；如果一个改动让你看不出原来的技术含义，就应该继续追问。
 
-## Scope
+## 怎样维护知识库
 
-这个示例包当前聚焦于无线通信短文写作，尤其是 WCL 风格的结构化表达。它不是一个通用学术写作总框架，也不打算把所有场景都折叠进一个技能里。真正可持续的方式，是先把一个任务做好，再逐步派生出适合自己团队的版本。
+普通写作、检查和修改不会自动改动知识库。发现值得保留的新经验时，AI 可以提出建议，由你明确要求后再写入。
+
+- 通用写作和检查准则放在 `学术写作规范.md`。
+- 表达偏好放在 `style_profile.md`。
+- 术语、缩写、短语参考和格式约定放在 `memory.md`。
+- `error_log.md` 保留作作者查阅的案例记录。
+
+知识库的目标不是越长越好，而是内容有用、分工清楚、相互一致。
+
+## 适用范围
+
+这个技能主要服务于无线通信论文的撰写、局部修改和专项审核。它帮助作者发现并改进写作问题；涉及文献是否真实、证明是否成立、实验是否可靠等问题时，仍需要相应材料和实际核查，不能仅凭文字通顺就认为已经验证。
 
 ## 推荐平台
 
@@ -143,13 +139,13 @@ VS Code、Cursor、Anti Gravity 和 Trae，基本都已经支持 skill 或类似
 
 另一个很实用的点是，这类 AI agent 通常已经可以直接读取 PDF、图片等材料，不需要我们再手动去装额外的 PDF 阅读插件，工作流会顺很多。对论文写作来说，这意味着你可以把参考论文、批注截图、公式图片、仿真图直接交给 agent，让它围绕同一套 knowledge base 工作。
 
-如果你的 agent token 暂时不太够，或者你只是想先快速试一轮思路，也完全可以直接用网页版聊天。最简单的做法就是把这里的几个 markdown 或 json 文件直接丢给 AI，让它先读 knowledge base，再针对你的局部问题给出建议。skill 不是唯一入口，它只是把这些经验组织得更稳定、更便于复用。
+如果你的 agent token 暂时不太够，或者你只是想先快速试一轮思路，也完全可以直接用网页版聊天。最简单的做法就是把这里的几个 Markdown 文件直接丢给 AI，让它先读 knowledge base，再针对你的局部问题给出建议。skill 不是唯一入口，它只是把这些经验组织得更稳定、更便于复用。
 
 ## 写在最后
 
 Karpathy 分享过一个值得我们警醒的判断：“You can outsource your thinking, but you can't outsource your understanding.” 换句话说，如果 AI 帮你改完一段话，你已经无法判断它是更好了还是更差了，这是一个危险信号，说明我们自己的审美和理解没有跟上。在 AI 时代，我们可以不再亲自做每一道繁琐工序，但仍然要做最后那个能分辨好坏的人。
 
-从这个角度看，README 的重要性并不低于 SKILL.md。SKILL.md 更像一个可发布、可复用、可继续修改的示例；README 和写作指引真正想传达的，是如何逐渐形成你自己的判断标准。如果发现 AI 的某些修改你无法判断好坏，最好的办法往往不是继续堆 prompt，而是专门开一个新的session，围绕这一处问题反复追问，把它真正吃透理解透。
+从这个角度看，README 的重要性并不低于 SKILL.md。SKILL.md 更像一个可发布、可复用、可继续修改的示例；README 真正想传达的，是如何逐渐形成你自己的判断标准。如果发现 AI 的某些修改你无法判断好坏，最好的办法往往不是继续堆 prompt，而是专门开一个新的session，围绕这一处问题反复追问，把它真正吃透理解透。
 
 也向以下作者与项目致谢，它们分别从不同角度影响了这个SKILL的设计。
 - ARIS 作者（GitHub 开源项目 Auto-claude-code-research-in-sleep）：<https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep>。推崇利用博弈论思想让科研工作自动化，可用于弥补该SKILL的不足。更具体而言，由于AI有掩盖自身的写作缺陷、迎合作者的倾向，易让作者陷入“当局者迷”的状态，导致一些问题（甚至是十分明显的问题）无法被发现。最简单的做法，就是另开一个网页对话，让另一个模型充当更苛刻的审稿人，对当前文章做压力测试，再把结果反馈给 writing agent。更自动化的做法，则是以 MCP 或类似方式接入另一类模型做外部评审。
@@ -157,4 +153,4 @@ Karpathy 分享过一个值得我们警醒的判断：“You can outsource your 
 
 希望这个SKILL最终服务的，不仅是“更快地产出一篇像样的稿子”，更是“把重复劳动交给工具之后，把更多时间留给真正需要判断、审美和创造力的部分”。
 
-欢迎大家共创，在Github上提issue。如果有直接针对skill的修改方案，能直接合并的话，也特别欢迎直接提PR。这个writing skill更新地越快，我们写作提效就会越快。
+欢迎大家共创，在Github上提issue。这个writing skill更新地越快，我们写作提效就会越快。

@@ -199,3 +199,7 @@
   - ❌ **Wrong**: "the map prior may deviate from the instantaneous channel"
   - ✅ **Right**: "the map prior may mismatch the instantaneous channel"
   - 🔒 **Instruction**: *deviate* literally means a single trajectory drifting from its own course (one object, two time points). When the sentence describes a mismatch between two distinct objects (e.g., a map prior vs. a channel), use *mismatch*, *diverge from*, or *no longer align with*. Before choosing a verb, ask: (a) what is the verb's core image—one object drifting, or two objects failing to match? (b) does the sentence's subject-object structure fit that image? If the subject and object are different entities, *deviate* is wrong.
+- **[2026-09-18] WCL Introduction: gap-to-solution structure (user preference)**
+  - **Problem**: The paragraph after existing work starts with material-sharing conditions, introduces assumptions and the proposed objective, and is followed by a mechanical First/Second/Third list.
+  - **Correction**: Start the gap paragraph with a meaningful transition such as "Despite these advances, ..." and explain the unresolved transferability problem. In the next paragraph, state the formulation and framework, identify the two subnetworks, and explain their roles in sequence.
+  - **Rule**: Keep method assumptions and detailed applicability conditions in the System Model / Problem Formulation, not the Introduction. Keep claims bounded and do not conceal conditions. Record this as the user's writing preference, not a universal IEEE requirement.
