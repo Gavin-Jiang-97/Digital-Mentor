@@ -13,26 +13,26 @@
 
 ## 文件与分工
 
+仓库根目录就是技能目录。下载后可将文件夹命名为 `mentor-guidance-writer`；`LICENSE` 保留开源许可说明。
+
 ```text
-Digital-Mentor/
+mentor-guidance-writer/
+├── SKILL.md
 ├── README.md
 ├── LICENSE
-├── 写作指引.md
-└── .github/skills/mentor-guidance-writer/
-    ├── SKILL.md
-    └── knowledge_base/
-        ├── 学术写作规范.md
-        ├── style_profile.md
-        ├── memory.md
-        └── error_log.md
+└── knowledge_base/
+    ├── 学术写作规范.md
+    ├── style_profile.md
+    ├── memory.md
+    └── error_log.md
 ```
 
 | 文件 | 主要用途 |
 |---|---|
-| [学术写作规范.md](.github/skills/mentor-guidance-writer/knowledge_base/学术写作规范.md) | 写作和检查论文的依据，包括技术对象与机制、主张与证据、章节组织、符号和仿真分析。 |
-| [style_profile.md](.github/skills/mentor-guidance-writer/knowledge_base/style_profile.md) | 说明希望采用的表达风格，包括句间衔接、段落推进、措辞和需要避免的表达。 |
-| [memory.md](.github/skills/mentor-guidance-writer/knowledge_base/memory.md) | 保存 CKM 等术语定义、缩写规则、短语参考和稿件格式约定。 |
-| [error_log.md](.github/skills/mentor-guidance-writer/knowledge_base/error_log.md) | 留给作者查阅的历史错误案例，不是 AI 每次都要读取的清单。 |
+| [学术写作规范.md](knowledge_base/学术写作规范.md) | 写作和检查论文的依据，包括技术对象与机制、主张与证据、章节组织、符号和仿真分析。 |
+| [style_profile.md](knowledge_base/style_profile.md) | 说明希望采用的表达风格，包括句间衔接、段落推进、措辞和需要避免的表达。 |
+| [memory.md](knowledge_base/memory.md) | 保存 CKM 等术语定义、缩写规则、短语参考和稿件格式约定。 |
+| [error_log.md](knowledge_base/error_log.md) | 留给作者查阅的历史错误案例，不是 AI 每次都要读取的清单。 |
 
 写作规范告诉 AI“应该检查什么”，风格文件告诉它“怎样表达”，记忆文件帮助它保持术语和格式一致。同一个问题不需要在几个文件里重复维护；短语和例句也要结合上下文使用，不能直接照抄。
 
