@@ -4,10 +4,10 @@ This file owns prose style, rhetorical choices, and user writing preferences. Se
 
 ## Core Style DNA
 
-- **Tone**: Formal, technical, evidence-bound, and forward-looking.
+- **Tone**: Formal, technical, evidence-bound, and forward-looking. 
 - **Abstract Pattern**: One or two sentence on context, one sentence on the gap, main body for the method, one sentence for simulation results.
 - **Paragraph Logic**: Topic sentence states the local claim. The next sentence explains why that claim matters. Middle sentences supply mechanism, contrast, or evidence. The closing sentence hands one keyword or tension to the next paragraph.
-- **Sentence Pattern**: Prefer medium-length sentences with one main clause and one supporting clause. Use shorter sentences to land key claims.
+- **Sentence Pattern**: Prefer medium-length sentences with one main clause and one supporting clause. Use shorter sentences to land key claims. 
 - **Lexical Preference**: Use precise verbs such as enable, characterize, reveal, facilitate, mitigate, predict, generalize, reconstruct, and validate. Prefer plain technical nouns over fashionable buzzwords.
 - **Figure/Table Narration**: Introduce each figure with the question it answers; discuss the dominant trend, the comparison baseline, and the indication/suggestion. For simulation figures of magzine, place configuration details in the caption and keep the body focused on interpretation. For simulation figures of letter or journal, place configuration details at the beginning of the simulation section.
 

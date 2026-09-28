@@ -1,11 +1,11 @@
 ---
-name: mentor-guidance-writer
+name: ieee_writer
 description: 'Draft, revise, and review wireless communications manuscripts using a curated writing knowledge base. Use for  无线通信论文撰写, 论文润色, 论文审核与修改, or explicit maintenance of this knowledge base.'
 argument-hint: 'Provide the target journal and article type, the author''s intended message and reasoning, manuscript or source materials, section or issue to address, and whether to give suggestions, edit directly, or submit a plan first.'
 user-invocable: true
 ---
 
-# Mentor Guidance Writer
+# IEEE Writer
 
 Help authors draft wireless communications papers, revise passages, and review specified sections or issues against the packaged writing guidelines. Preserve technical meaning and support each substantive review finding with manuscript evidence.
 
@@ -27,7 +27,7 @@ Knowledge-base maintenance is a separate, explicitly requested operation; it doe
 
 ## Check the Author's Ideas and Logic
 
-After confirming the venue and task, assess whether the author has supplied the ideas and reasoning needed for the requested writing or revision. This skill structures, expresses, and improve the author's thinking according to writing conventions; it must not independently invent the intended scientific message, motivation, contribution, mechanism, or conclusion.
+After confirming the venue and task, assess whether the author has supplied the ideas and reasoning needed for the requested writing or revision. This skill structures, expresses, and improve the author's thinking according to writing conventions; it must not independently invent the intended scientific message, motivation, contribution, mechanism, or conclusion. 
 
 Adopt the perspective of an experienced reviewer familiar with the author's research area. If the author has not supplied reasoning, ask for clarification before drafting or revising. If the author has supplied reasoning (outline, notes or related prompt), check whether it is sufficient to support the intended message and whether the argument is coherent. Scale the check to the requested passage or section rather than demanding a whole-paper research plan for a local edit.
 
@@ -93,7 +93,7 @@ For an explicit maintenance request, keep writing criteria in 学术写作规范
 
 ## Examples
 
-- `/mentor-guidance-writer 目标期刊是 IEEE Wireless Communications Letters。我的方法章节思路是：先说明现有估计方法在低信噪比下的问题，再解释为何先去噪、后估计，最后按输入、两个处理步骤和输出介绍算法。具体机制与结果见附件。请先判断这条逻辑是否成立；有疑问先指出，合适后再依据知识库起草，不要自行补充技术动机或结论。`
-- `/mentor-guidance-writer 目标期刊是 IEEE Wireless Communications Letters。我的引言思路是：现有方法依赖新场景测量，这增加了部署成本；本文想研究如何减少这种依赖，贡献范围以我提供的实验为限。请检查草稿和材料能否支撑这条论证，只给出问题位置、理由和修改建议，暂不改文件。`
-- `/mentor-guidance-writer 目标期刊是 IEEE Transactions on Wireless Communications，属于 journal。我希望仿真分析先比较估计误差，再通过去噪模块的消融判断增益来源，最后说明优势出现的条件。请先检查现有结果是否支持这个思路；支持的部分可以修改，缺少证据或逻辑不成立的部分先向我指出，保持数据和技术结论不变。`
-- `/mentor-guidance-writer 请根据今天确认的偏好更新 style_profile.md，先列出修改方案，等我确认后再改。`
+- `/ieee_writer 目标期刊是 IEEE Wireless Communications Letters。我的方法章节思路是：先说明现有估计方法在低信噪比下的问题，再解释为何先去噪、后估计，最后按输入、两个处理步骤和输出介绍算法。具体机制与结果见附件。请先判断这条逻辑是否成立；有疑问先指出，合适后再依据知识库起草，不要自行补充技术动机或结论。`
+- `/ieee_writer 目标期刊是 IEEE Wireless Communications Letters。我的引言思路是：现有方法依赖新场景测量，这增加了部署成本；本文想研究如何减少这种依赖，贡献范围以我提供的实验为限。请检查草稿和材料能否支撑这条论证，只给出问题位置、理由和修改建议，暂不改文件。`
+- `/ieee_writer 目标期刊是 IEEE Transactions on Wireless Communications，属于 journal。我希望仿真分析先比较估计误差，再通过去噪模块的消融判断增益来源，最后说明优势出现的条件。请先检查现有结果是否支持这个思路；支持的部分可以修改，缺少证据或逻辑不成立的部分先向我指出，保持数据和技术结论不变。`
+- `/ieee_writer 请根据今天确认的偏好更新 style_profile.md，先列出修改方案，等我确认后再改。`
