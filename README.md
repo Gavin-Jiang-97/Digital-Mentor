@@ -9,7 +9,7 @@
 除了起草和润色，这个技能也可以依据知识库中的写作规范，检查指定章节或具体问题。它会说明哪里有问题、依据是什么、为什么需要修改，再按照你的要求给出建议或直接修改。
 
 ## Notable contributions
-**[@ElysionHuang](https://github.com/ElysionHuang)** 该项目的灵感源于以诺在科研群分享的“蒸馏老板和同事”的SKILL。后续我和以诺将共同维护该仓库，把它拓展为适用于会议（Conference）、期刊（Journal）和杂志（Magazine）的通用版本，并内置高效的论文 PDF 风格提取器。
+**[@ElysionHuang](https://github.com/ElysionHuang)** 该项目的灵感源于以诺在科研群分享的“蒸馏老板和同事”的SKILL。后续我和以诺将共同维护该仓库，把它拓展为适用于会议（Conference）、期刊（Journal）和杂志（Magazine）的通用版本。
 
 ## 文件与分工
 
