@@ -136,4 +136,4 @@ Karpathy 分享过一个值得我们警醒的判断：“You can outsource your 
 
 从这个角度看，README 的重要性并不低于 SKILL.md。SKILL.md 更像一个可发布、可复用、可继续修改的示例；README 真正想传达的，是如何逐渐形成你自己的判断标准。如果发现 AI 的某些修改你无法判断好坏，最好的办法往往不是继续堆 prompt，而是专门开一个新的session，围绕这一处问题反复追问，把它真正吃透理解透。
 
-也感谢 `AI-Vibe-Writing-Skills` 项目对本仓库知识库整理方式的启发：[项目链接](https://github.com/donghuixin/AI-Vibe-Writing-Skills)。欢迎在 [GitHub Issues](https://github.com/Gavin-Jiang-97/Digital-Mentor/issues) 分享使用中发现的问题或改进建议。
+欢迎在 [GitHub Issues](https://github.com/Gavin-Jiang-97/Digital-Mentor/issues) 分享使用中发现的问题或改进建议。
