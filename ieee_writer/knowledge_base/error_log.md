@@ -210,13 +210,13 @@
   - 🔒 **Instruction**: When describing a method, state what data it uses, what relationship it relies on, and which quantity of which object it infers; do not replace the mechanism with abstract nouns such as mapping or relationship (see 1.1).
 
 - **[2026-11-02] 同一概念在全文中交替使用近义术语**
-  - ❌ **Wrong**: 同时使用 channel measurements 与 channel observations；power angle profile 与 spatial spectrum / angular spectrum；channel knowledge 与 channel descriptors
-  - ✅ **Right**: 选定最贴切的一个术语，全文（含摘要、图题、表头）只用该术语
+  - ❌ **Wrong**: 同时使用 channel measurements 与 channel observations
+  - ✅ **Right**: 选定 channel measurements 后，全文（含摘要、图题、表头）只用该术语
   - 🔒 **Instruction**: Once a term is chosen, do not switch to a synonym anywhere in the manuscript, including the abstract, captions, and table headers (see 1.5).
 
 - **[2026-11-02] 复合技术名称的中心词与修饰关系与实际架构不一致**
-  - ❌ **Wrong**: with / based 的选择与主体、附属关系相反，例如把主体是 RMP 的方法写成 "DDM with RMP"
-  - ✅ **Right**: conditional decoupled diffusion model (DDM) with reverse mean propagation (RMP)（主体是 DDM，RMP 是其组成或机制）；conditional DDM based RMP（主体是 RMP，DDM 是其基础或实现手段）
+  - ❌ **Wrong**: 主体是 DDM、RMP 是其组成机制，却写成 "conditional DDM based RMP"
+  - ✅ **Right**: conditional decoupled diffusion model (DDM) with reverse mean propagation (RMP)
   - 🔒 **Instruction**: Identify the head object and the subordinate component first, then choose with / based / for / -aided to match the actual architecture (see 1.7).
 
 - **[2026-11-02] 摘要和引言中使用尚未定义的正文内部概念**
@@ -224,12 +224,12 @@
   - ✅ **Right**: do not address channel knowledge prediction at unmeasured locations
   - 🔒 **Instruction**: Do not let modeling constructs introduced in the body (grid, discretization indices, internal module names) appear before they are defined, especially in the abstract and introduction; use concepts the reader already has (see 1.8).
 
-- **[2026-11-02] 贡献句式：长句串联、被动语态、对比并列**
-  - ❌ **Wrong**: 用 and / which / while 把多项贡献串成一句；写 "A framework is proposed ..."；在一句里并列基线比较与消融比较
-  - ✅ **Right**: 一个贡献一句话；用 "We propose / develop / derive ..."；横向对比与纵向对比各写一句
-  - 🔒 **Instruction**: In the abstract, contribution paragraph, and conclusion, write one contribution per sentence in active voice with "we", and state baseline comparisons and internal comparisons separately (see 2.3).
+- **[2026-11-02] 贡献使用被动语态**
+  - ❌ **Wrong**: A framework is proposed to construct the CKM.
+  - ✅ **Right**: We propose a framework to construct the CKM.
+  - 🔒 **Instruction**: In the abstract, contribution paragraph, and conclusion, write each contribution as one sentence in active voice with "we" (see 2.3).
 
 - **[2026-11-02] 贡献段首句直接写方法第一步**
   - ❌ **Wrong**: 引言第四段一开头就介绍方法的第一步
-  - ✅ **Right**: 首句先说明本文考虑的问题，包括系统设定、任务以及已知或可用条件，例如 "In this letter, we consider angle-delay CKM construction in MIMO-OFDM systems based on sparse channel measurements and environment information."，之后再介绍方法
+  - ✅ **Right**: In this letter, we consider angle-delay CKM construction in MIMO-OFDM systems based on sparse channel measurements and environment information.（先交代问题，再介绍方法）
   - 🔒 **Instruction**: Open the contribution paragraph by stating the problem considered, its system setting, task, and available information, before describing the method (see 2.1).
