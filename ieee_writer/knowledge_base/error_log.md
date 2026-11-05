@@ -203,3 +203,33 @@
   - **Problem**: The paragraph after existing work starts with material-sharing conditions, introduces assumptions and the proposed objective, and is followed by a mechanical First/Second/Third list.
   - **Correction**: Start the gap paragraph with a meaningful transition such as "Despite these advances, ..." and explain the unresolved transferability problem. In the next paragraph, state the formulation and framework, identify the two subnetworks, and explain their roles in sequence.
   - **Rule**: Keep method assumptions and detailed applicability conditions in the System Model / Problem Formulation, not the Introduction. Keep claims bounded and do not conceal conditions. Record this as the user's writing preference, not a universal IEEE requirement.
+
+- **[2026-11-02] 用抽象名词代替具体机制**
+  - ❌ **Wrong**: Model-free methods exploit spatial correlations in channel measurements to infer location-to-channel mappings.
+  - ✅ **Right**: Model-free methods exploit channel data at measured locations and spatial correlations to infer channel characteristics at unmeasured locations.
+  - 🔒 **Instruction**: When describing a method, state what data it uses, what relationship it relies on, and which quantity of which object it infers; do not replace the mechanism with abstract nouns such as mapping or relationship (see 1.1).
+
+- **[2026-11-02] 同一概念在全文中交替使用近义术语**
+  - ❌ **Wrong**: 同时使用 channel measurements 与 channel observations
+  - ✅ **Right**: 选定 channel measurements 后，全文（含摘要、图题、表头）只用该术语
+  - 🔒 **Instruction**: Once a term is chosen, do not switch to a synonym anywhere in the manuscript, including the abstract, captions, and table headers (see 1.5).
+
+- **[2026-11-02] 复合技术名称的中心词与修饰关系与实际架构不一致**
+  - ❌ **Wrong**: 主体是 DDM、RMP 是其组成机制，却写成 "conditional DDM based RMP"
+  - ✅ **Right**: conditional decoupled diffusion model (DDM) with reverse mean propagation (RMP)
+  - 🔒 **Instruction**: Identify the head object and the subordinate component first, then choose with / based / for / -aided to match the actual architecture (see 1.7).
+
+- **[2026-11-02] 摘要和引言中使用尚未定义的正文内部概念**
+  - ❌ **Wrong**: do not address channel knowledge prediction for unmeasured grids
+  - ✅ **Right**: do not address channel knowledge prediction at unmeasured locations
+  - 🔒 **Instruction**: Do not let modeling constructs introduced in the body (grid, discretization indices, internal module names) appear before they are defined, especially in the abstract and introduction; use concepts the reader already has (see 1.8).
+
+- **[2026-11-02] 贡献使用被动语态**
+  - ❌ **Wrong**: A framework is proposed to construct the CKM.
+  - ✅ **Right**: We propose a framework to construct the CKM.
+  - 🔒 **Instruction**: In the abstract, contribution paragraph, and conclusion, write each contribution as one sentence in active voice with "we" (see 2.3).
+
+- **[2026-11-02] 贡献段首句直接写方法第一步**
+  - ❌ **Wrong**: 引言第四段一开头就介绍方法的第一步
+  - ✅ **Right**: In this letter, we consider angle-delay CKM construction in MIMO-OFDM systems based on sparse channel measurements and environment information.（先交代问题，再介绍方法）
+  - 🔒 **Instruction**: Open the contribution paragraph by stating the problem considered, its system setting, task, and available information, before describing the method (see 2.1).

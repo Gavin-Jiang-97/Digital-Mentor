@@ -44,7 +44,7 @@ Pause drafting or substantive rewriting that depends on unresolved ideas until t
 - [学术写作规范.md](knowledge_base/学术写作规范.md): criteria for technical correspondence, evidence-bounded claims, structure, notation, derivation exposition, and simulation analysis. Retain its numbered references when reporting findings.
 - [style_profile.md](knowledge_base/style_profile.md): prose style, transitions, vocabulary, and rhetorical preferences.
 - [memory.md](knowledge_base/memory.md): terminology definitions, abbreviations, phrase examples, and manuscript conventions.
-- [error_log.md](knowledge_base/error_log.md): historical examples retained for human reference, not required reading for routine AI tasks.
+- [error_log.md](knowledge_base/error_log.md): historical examples for human reference. During manuscript drafting, review, or revision, do not open, read, search, or load this file, including through bulk knowledge-base reads or wildcard searches. Access it only when the author explicitly asks to inspect or maintain the error log itself.
 
 | Task | Required reading |
 |---|---|
