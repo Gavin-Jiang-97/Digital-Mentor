@@ -21,7 +21,7 @@ Maintain reusable terminology and technical conventions for wireless communicati
 
 ## Safe Phrase Bank
 
-- "we investigates..."
+- "We investigate..."
 - "The key difficulty lies in..."
 - "This observation motivates..."
 - "To address this issue, we..."
